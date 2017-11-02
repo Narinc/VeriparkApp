@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@android:dimen/app_icon_size"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/veripark"
+            android:padding="@dimen/padding_common"
+            android:src="@drawable/veripark_logo" />
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:contentDescription="@string/search"
+            android:padding="@dimen/padding_common"
+            android:src="@drawable/ic_search_black_36dp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_back_and_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+            android:id="@+id/iv_undo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/undo"
+            android:padding="@dimen/padding_common"
+            android:src="@drawable/ic_navigate_before_black_36dp" />
+
+        <TextView
+            android:id="@+id/tvHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/padding_common"
+            android:textSize="@dimen/text_size_large"
+            android:textStyle="bold"
+            tools:text="Hisse Senedi ve Endeksler" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"/>
+</LinearLayout>

@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="volkan.com.veriparkapp.ui.indexes.IndexesFragment">
+    <include
+        android:id="@+id/navbar"
+        layout="@layout/layout_toolbar" />
+    <Button
+        android:id="@+id/btn_show_shares_and_bills"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_common"
+        android:layout_height="wrap_content"
+        android:text="@string/shares_and_bills"/>
+
+    <Button
+        android:id="@+id/btn_show_rose_shares"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_common"
+        android:layout_height="wrap_content"
+        android:text="@string/rose_shares"/>
+
+    <Button
+        android:id="@+id/btn_show_fell_shares"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_common"
+        android:layout_height="wrap_content"
+        android:text="@string/fell_shares"/>
+
+    <Button
+        android:id="@+id/btn_show_stock_volumes_for_30"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_common"
+        android:layout_height="wrap_content"
+        android:text="@string/for_stock_volumes_30"/>
+
+    <Button
+        android:id="@+id/btn_show_stock_volumes_for_50"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_common"
+        android:layout_height="wrap_content"
+        android:text="@string/for_stock_volumes_50"/>
+
+    <Button
+        android:id="@+id/btn_show_stock_volumes_for_100"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/margin_common"
+        android:layout_height="wrap_content"
+        android:text="@string/for_stock_volumes_100"/>
+
+
+
+</LinearLayout>
