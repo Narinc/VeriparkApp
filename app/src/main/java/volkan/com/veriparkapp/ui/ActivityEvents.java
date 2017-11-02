@@ -10,4 +10,6 @@ import volkan.com.veriparkapp.data.model.stock_indexes_info.response.StockandInd
 
 public interface ActivityEvents {
     void showStockesList(List<StockandIndex> stockandIndexes);
+
+    void showDetail(StockandIndex item);
 }

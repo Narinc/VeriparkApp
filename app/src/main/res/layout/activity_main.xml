@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin_common"
             android:text="@string/mkb_hisse_senetleri_endeksler" />
+
     </LinearLayout>
 
     <FrameLayout

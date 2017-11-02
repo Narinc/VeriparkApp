@@ -55,6 +55,12 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
         objectsList.set(index, item);
     }
 
+    public void setAll(List<T> items) {
+        objectsList.clear();
+        objectsList.addAll(items);
+        notifyDataSetChanged();
+    }
+
     public int getIndex(T item) {
         return objectsList.indexOf(item);
     }

@@ -17,6 +17,7 @@ import volkan.com.veriparkapp.R;
 import volkan.com.veriparkapp.base.BaseFragment;
 import volkan.com.veriparkapp.data.model.stock_indexes_info.response.StockandIndex;
 import volkan.com.veriparkapp.ui.ActivityEvents;
+import volkan.com.veriparkapp.util.Constants;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -68,15 +69,42 @@ public class IndexesFragment extends BaseFragment<IndexesScreen.Presenter> imple
 
     @OnClick(R.id.btn_show_shares_and_bills)
     void click() {
+        presenter.getEncryptedKey(getRequest(), Constants.ALL);
+    }
+
+    @OnClick(R.id.btn_show_fell_shares)
+    void clickDropping() {
+        presenter.getEncryptedKey(getRequest(), Constants.DROPPINGS);
+    }
+
+    @OnClick(R.id.btn_show_rose_shares)
+    void clickRisings() {
+        presenter.getEncryptedKey(getRequest(),Constants.RISINGS);
+    }
+
+    @OnClick(R.id.btn_show_stock_volumes_for_30)
+    void clickVolume30() {
+        presenter.getEncryptedKey(getRequest(),Constants.BY_VOLUME_30);
+    }
+
+    @OnClick(R.id.btn_show_stock_volumes_for_50)
+    void clickVolume50() {
+        presenter.getEncryptedKey(getRequest(),Constants.BY_VOLUME_50);
+    }
+
+    @OnClick(R.id.btn_show_stock_volumes_for_100)
+    void clickVolume100() {
+        presenter.getEncryptedKey(getRequest(),Constants.BY_VOLUME_100);
+    }
+
+    private String getRequest() {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("“dd:MM:yyyy HH:mm");
         String request = "RequestIsValid".concat(simpleDateFormat.format(date));
 
         //Interestingly, quotes occurs
         String[] strings = request.split("“");
-        request = strings[0].concat(strings[1]);
-
-        presenter.getEncryptedKey(request);
+        return strings[0].concat(strings[1]);
     }
 
     @Override

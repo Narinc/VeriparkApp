@@ -1,6 +1,7 @@
 package volkan.com.veriparkapp.base;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
 
 /**
  * Created by volkan on 31.10.2017 22:38.
@@ -19,4 +20,5 @@ public interface BaseView<T> {
 
     android.view.View getSnackbarAnchorView();
 
+    FragmentManager getFragmentManager();
 }

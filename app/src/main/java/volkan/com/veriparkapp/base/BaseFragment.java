@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,8 +29,8 @@ public abstract class BaseFragment<T> extends Fragment implements BaseView<T> {
     @BindView(R.id.content)
     protected LinearLayout content;
     @Nullable
-    @BindView(R.id.iv_search)
-    protected ImageView ivSearch;
+    @BindView(R.id.toggle_search)
+    protected ToggleButton toggleSearch;
     @Nullable
     @BindView(R.id.iv_undo)
     protected ImageView ivUndo;

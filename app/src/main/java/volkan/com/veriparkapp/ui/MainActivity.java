@@ -12,13 +12,15 @@ import volkan.com.veriparkapp.base.BaseActivity;
 import volkan.com.veriparkapp.data.model.stock_indexes_info.response.StockandIndex;
 import volkan.com.veriparkapp.data.source.indexes.IndexesRemoteDataSource;
 import volkan.com.veriparkapp.data.source.indexes.IndexesRepository;
+import volkan.com.veriparkapp.ui.detail.DetailFragment;
+import volkan.com.veriparkapp.ui.detail.DetailPresenter;
 import volkan.com.veriparkapp.ui.indexes.IndexesFragment;
 import volkan.com.veriparkapp.ui.indexes.IndexesPresenter;
 import volkan.com.veriparkapp.ui.indexlist.IndexListFragment;
 import volkan.com.veriparkapp.ui.indexlist.IndexListPresenter;
 import volkan.com.veriparkapp.util.ActivityUtils;
 
-public class MainActivity extends BaseActivity implements ActivityEvents{
+public class MainActivity extends BaseActivity implements ActivityEvents {
     private static final String TAG = "MainActivity";
 
     @Override
@@ -41,11 +43,20 @@ public class MainActivity extends BaseActivity implements ActivityEvents{
     void showStock() {
         IndexesFragment indexesFragment = IndexesFragment.newInstance();
         ActivityUtils.addFragmentToActivityWithTag(getSupportFragmentManager(), indexesFragment, R.id.contentFrame, "BUTTONSFRAGMENT");
-        presenter = new IndexesPresenter(IndexesRepository.getInstance(IndexesRemoteDataSource.getInstance()), indexesFragment);    }
+        presenter = new IndexesPresenter(IndexesRepository.getInstance(IndexesRemoteDataSource.getInstance()), indexesFragment);
+    }
 
     @Override
     public void showStockesList(List<StockandIndex> stockandIndexes) {
         IndexListFragment listFragment = IndexListFragment.newInstance(stockandIndexes);
         ActivityUtils.addFragmentToActivityWithTag(getSupportFragmentManager(), listFragment, R.id.contentFrame, "LISTFRAGMENT");
-        presenter = new IndexListPresenter(IndexesRepository.getInstance(IndexesRemoteDataSource.getInstance()), listFragment);    }
+        presenter = new IndexListPresenter(IndexesRepository.getInstance(IndexesRemoteDataSource.getInstance()), listFragment);
+    }
+
+    @Override
+    public void showDetail(StockandIndex item) {
+        DetailFragment detailFragment = DetailFragment.newInstance(item);
+        ActivityUtils.addFragmentToActivityWithTag(getSupportFragmentManager(), detailFragment, R.id.contentFrame, "DETAILFRAGMENT");
+        presenter = new DetailPresenter(IndexesRepository.getInstance(IndexesRemoteDataSource.getInstance()), detailFragment);
+    }
 }

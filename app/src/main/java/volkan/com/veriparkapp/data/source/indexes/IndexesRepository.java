@@ -4,6 +4,8 @@ import android.support.annotation.NonNull;
 
 import volkan.com.veriparkapp.data.model.encryptedKey.request.EncryptRequestEnv;
 import volkan.com.veriparkapp.data.model.encryptedKey.response.EncryptResponseEnv;
+import volkan.com.veriparkapp.data.model.stock_index_detail.request.ImkbIndexDetailRequestEnv;
+import volkan.com.veriparkapp.data.model.stock_index_detail.response.ImkbIndexDetailResponseEnv;
 import volkan.com.veriparkapp.data.model.stock_indexes_info.request.ImkbIndexesRequestEnv;
 import volkan.com.veriparkapp.data.model.stock_indexes_info.response.ImkbIndexesResponseEnv;
 import volkan.com.veriparkapp.data.source.ICalbackDataImpl;
@@ -51,5 +53,11 @@ public class IndexesRepository implements IndexsDataSource {
     @Override
     public void getStockList(ImkbIndexesRequestEnv requestEnv, ICallbackData<ImkbIndexesResponseEnv> iCallbackData) {
         indexsDataSource.getStockList(requestEnv,new ICalbackDataImpl<ImkbIndexesResponseEnv>(iCallbackData));
+    }
+
+    @Override
+    public void getDetail(ImkbIndexDetailRequestEnv requestEnv, ICallbackData<ImkbIndexDetailResponseEnv> iCallbackData) {
+        indexsDataSource.getDetail(requestEnv,new ICalbackDataImpl<ImkbIndexDetailResponseEnv>(iCallbackData));
+
     }
 }

@@ -19,8 +19,8 @@ public interface IndexesScreen {
 
     interface Presenter extends BasePresenter {
 
-        void getEncryptedKey(String format);
+        void getEncryptedKey(String format, String filter);
 
-        void getStoksList(ImkbIndexesRequestInfo requestInfo);
+        void getStoksList(ImkbIndexesRequestInfo requestInfo, String filter);
     }
 }

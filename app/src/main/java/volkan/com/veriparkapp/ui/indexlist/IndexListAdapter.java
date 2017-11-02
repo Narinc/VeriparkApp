@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -13,6 +16,7 @@ import butterknife.ButterKnife;
 import volkan.com.veriparkapp.R;
 import volkan.com.veriparkapp.base.BaseListAdapter;
 import volkan.com.veriparkapp.data.model.stock_indexes_info.response.StockandIndex;
+import volkan.com.veriparkapp.ui.ActivityEvents;
 
 /**
  * Created by volkan on 02.11.2017 02:04.
@@ -20,8 +24,11 @@ import volkan.com.veriparkapp.data.model.stock_indexes_info.response.StockandInd
 
 public class IndexListAdapter extends BaseListAdapter<StockandIndex> {
 
-    public IndexListAdapter(Context context, List<StockandIndex> objectsList) {
+    private final IndexListScreen.View indexView;
+
+    public IndexListAdapter(Context context, IndexListScreen.View indexView, List<StockandIndex> objectsList) {
         super(context, objectsList);
+        this.indexView = indexView;
     }
 
     @Override
@@ -47,9 +54,21 @@ public class IndexListAdapter extends BaseListAdapter<StockandIndex> {
         holder.tvVolume.setText(String.valueOf(item.getVolume()));
         holder.tvBuying.setText(String.valueOf(item.getBuying()));
         holder.tvSelling.setText(String.valueOf(item.getSelling()));
-        holder.tvHour.setText(String.valueOf(item.getHour()));
+
+        Date date = new Date(item.getHour());
+        DateFormat formatter = new SimpleDateFormat("HH:mm");
+        String dateFormatted = formatter.format(date);
+        holder.tvHour.setText(dateFormatted);
 
         holder.tvPrice.setText(String.valueOf(item.getDayPeakPrice()));
+
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityEvents activityEvents = (ActivityEvents) indexView.getActivity();
+                activityEvents.showDetail(item);
+            }
+        });
 
         return view;
     }

@@ -4,6 +4,8 @@ import retrofit2.Call;
 import volkan.com.veriparkapp.base.BaseRemoteDataSource;
 import volkan.com.veriparkapp.data.model.encryptedKey.request.EncryptRequestEnv;
 import volkan.com.veriparkapp.data.model.encryptedKey.response.EncryptResponseEnv;
+import volkan.com.veriparkapp.data.model.stock_index_detail.request.ImkbIndexDetailRequestEnv;
+import volkan.com.veriparkapp.data.model.stock_index_detail.response.ImkbIndexDetailResponseEnv;
 import volkan.com.veriparkapp.data.model.stock_indexes_info.request.ImkbIndexesRequestEnv;
 import volkan.com.veriparkapp.data.model.stock_indexes_info.response.ImkbIndexesResponseEnv;
 import volkan.com.veriparkapp.data.source.CallbackResult;
@@ -34,6 +36,12 @@ public class IndexesRemoteDataSource extends BaseRemoteDataSource implements Ind
     public void getStockList(ImkbIndexesRequestEnv requestEnv, ICallbackData<ImkbIndexesResponseEnv> iCallbackData) {
         Call<ImkbIndexesResponseEnv> call = apiRequest.requestStockList(requestEnv);
         call.enqueue(new CallbackResult<ImkbIndexesResponseEnv>(iCallbackData));
+    }
+
+    @Override
+    public void getDetail(ImkbIndexDetailRequestEnv requestEnv, ICallbackData<ImkbIndexDetailResponseEnv> iCallbackData) {
+        Call<ImkbIndexDetailResponseEnv> call = apiRequest.requestStockDetail(requestEnv);
+        call.enqueue(new CallbackResult<ImkbIndexDetailResponseEnv>(iCallbackData));
     }
 
 }

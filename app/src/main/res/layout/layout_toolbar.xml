@@ -17,15 +17,17 @@
             android:padding="@dimen/padding_common"
             android:src="@drawable/veripark_logo" />
 
-        <ImageView
-            android:id="@+id/iv_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ToggleButton
+            android:id="@+id/toggle_search"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/padding_common"
+            android:background="@drawable/ic_search_black_36dp"
             android:contentDescription="@string/search"
-            android:padding="@dimen/padding_common"
-            android:src="@drawable/ic_search_black_36dp"
+            android:textOff=""
+            android:textOn=""
             android:visibility="gone"
             tools:visibility="visible" />
     </RelativeLayout>
@@ -60,5 +62,5 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/black"/>
+        android:background="@color/black" />
 </LinearLayout>
